@@ -7,9 +7,11 @@ const SprkButton = ({
   additionalClasses,
   analyticsString,
   children,
+  isDisabled,
   disabled,
   element,
   idString,
+  isSpinning,
   loading,
   variant,
   href,
@@ -25,7 +27,8 @@ const SprkButton = ({
     TagName = 'button';
   }
   let spinnerVariant;
-  if (loading) {
+  // TODO: Deprecate loading
+  if (loading || isSpinning) {
     if (variant === 'secondary') {
       spinnerVariant = 'primary';
     }
@@ -43,18 +46,21 @@ const SprkButton = ({
         { 'sprk-c-Button--secondary': variant === 'secondary' },
         { 'sprk-c-Button--tertiary': variant === 'tertiary' },
         { 'sprk-c-Button--quaternary': variant === 'quaternary' },
-        { 'sprk-is-Disabled': disabled },
+        { 'sprk-is-Disabled': isDisabled || disabled },
         additionalClasses,
       )}
       role={TagName !== 'button' ? 'button' : undefined}
       data-id={idString}
       data-analytics={analyticsString}
-      disabled={TagName !== 'a' ? disabled : undefined}
+      disabled={TagName !== 'a' ? isDisabled || disabled : undefined}
       href={TagName !== 'button' ? href : undefined}
       {...rest}
-      {...(loading && { 'aria-label': spinningAriaLabel })}
+      // TODO: Deprecate loading
+      {...((loading || isSpinning) && { 'aria-label': spinningAriaLabel })}
     >
-      {(loading && <SprkSpinner variant={spinnerVariant} />) || children}
+      {/* TODO: Deprecate loading */}
+      {((loading || isSpinning) && <SprkSpinner variant={spinnerVariant} />) ||
+        children}
     </TagName>
   );
 };
@@ -73,11 +79,18 @@ SprkButton.propTypes = {
   analyticsString: PropTypes.string,
   /** Content to render inside of the SprkButton */
   children: PropTypes.node,
+  // TODO: Deprecate on next release
   /**
+   * Deprecated: Use `isDisabled` instead.
    * Applies disabled style and the
    * disabled attribute to the element.
    */
   disabled: PropTypes.bool,
+  /**
+   * Applies disabled style and the
+   * disabled attribute to the element.
+   */
+  isDisabled: PropTypes.bool,
   /**
    * Determines what element is rendered.
    * If an href is provided and an element is not,
@@ -100,6 +113,12 @@ SprkButton.propTypes = {
    * Will cause a spinner to be
    * rendered in place of the button content.
    */
+  isSpinning: PropTypes.bool,
+  /**
+   * Deprecated: Use `isSpinning` instead.
+   * Will cause a spinner to be
+   * rendered in place of the button content.
+   */
   loading: PropTypes.bool,
   /**
    * Optional string value that is
@@ -118,10 +137,13 @@ SprkButton.propTypes = {
   href: PropTypes.string,
 };
 
+// TODO: Remove loading and disabled at next release
 SprkButton.defaultProps = {
+  isDisabled: false,
   disabled: false,
   variant: 'primary',
   loading: false,
+  isSpinning: false,
   spinningAriaLabel: 'Loading',
 };
 

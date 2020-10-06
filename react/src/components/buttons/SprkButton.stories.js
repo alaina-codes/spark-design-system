@@ -32,7 +32,7 @@ alternative text must be provided.
 submit the form, the attribute \`type=”button”\` must be used.
 - If a Button submits a form, do not use \`<input type="submit">\`.
 Instead use \`<button type=”submit”>\`
-- If a Button is Disabled, you must add the \`disabled\` attribute
+- If a Button is Disabled, you must add the \`isDisabled\` attribute
 in addition to the \`sprk-is-Disabled\` class so that it doesn’t
 receive interaction.
 `,
@@ -76,14 +76,18 @@ export const quaternary = () => (
 );
 
 export const disabled = () => (
-  <SprkButton disabled idString="button-5" analyticsString="button-5-analytics">
+  <SprkButton
+    isDisabled
+    idString="button-5"
+    analyticsString="button-5-analytics"
+  >
     Button
   </SprkButton>
 );
 
 export const disabledSecondary = () => (
   <SprkButton
-    disabled
+    isDisabled
     variant="secondary"
     idString="button-6"
     analyticsString="button-6-analytics"
@@ -94,7 +98,7 @@ export const disabledSecondary = () => (
 
 export const disabledTertiary = () => (
   <SprkButton
-    disabled
+    isDisabled
     variant="tertiary"
     idString="button-7"
     analyticsString="button-7-analytics"
@@ -105,7 +109,7 @@ export const disabledTertiary = () => (
 
 export const disabledQuaternary = () => (
   <SprkButton
-    disabled
+    isDisabled
     variant="quaternary"
     idString="button-8"
     analyticsString="button-8-analytics"
@@ -115,13 +119,18 @@ export const disabledQuaternary = () => (
 );
 
 export const spinning = () => (
-  <SprkButton loading idString="button-9" analyticsString="button-9-analytics">
+  <SprkButton
+    isSpinning
+    idString="button-9"
+    analyticsString="button-9-analytics"
+  >
     Button
   </SprkButton>
 );
 
 export const spinningSecondary = () => (
   <SprkButton
+    isSpinning
     loading
     variant="secondary"
     idString="button-10"
@@ -133,7 +142,7 @@ export const spinningSecondary = () => (
 
 export const spinningTertiary = () => (
   <SprkButton
-    loading
+    isSpinning
     variant="tertiary"
     idString="button-11"
     analyticsString="button-11-analytics"
@@ -144,7 +153,7 @@ export const spinningTertiary = () => (
 
 export const spinningQuaternary = () => (
   <SprkButton
-    loading
+    isSpinning
     variant="quaternary"
     idString="button-12"
     analyticsString="button-12-analytics"
