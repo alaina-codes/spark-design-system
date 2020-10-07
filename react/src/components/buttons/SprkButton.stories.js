@@ -131,7 +131,6 @@ export const spinning = () => (
 export const spinningSecondary = () => (
   <SprkButton
     isSpinning
-    loading
     variant="secondary"
     idString="button-10"
     analyticsString="button-10-analytics"
