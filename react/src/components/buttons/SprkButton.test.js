@@ -50,7 +50,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('.sprk-c-Spinner').length).toBe(1);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('if loading is set, should render the spinner', () => {
     const wrapper = mount(<SprkButton loading />);
     expect(wrapper.find('.sprk-c-Spinner').length).toBe(1);
@@ -65,7 +65,7 @@ describe('SprkButton:', () => {
     },
   );
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it(
     'if loading is set, should render the spinner' +
       ' and add aria-label to element',
@@ -86,7 +86,7 @@ describe('SprkButton:', () => {
     },
   );
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it(
     'if loading is set with spinningAriaLabel it' +
       ' should add custom aria-label',
@@ -112,7 +112,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('button[aria-label="initial"]').length).toBe(1);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('it should not overwrite aria-label if loading=false', () => {
     const wrapper = mount(<SprkButton aria-label="initial" loading={false} />);
     expect(wrapper.find('button[aria-label="initial"]').length).toBe(1);
@@ -123,7 +123,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('button[aria-label="Loading"]').length).toBe(1);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('it should overwrite aria-label if loading=true', () => {
     const wrapper = mount(<SprkButton aria-label="initial" loading />);
     expect(wrapper.find('button[aria-label="Loading"]').length).toBe(1);
@@ -141,7 +141,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('.sprk-c-Spinner--dark').length).toBe(0);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('if loading is set and variant is secondary, should render the primary spinner', () => {
     const wrapper = mount(<SprkButton loading variant="secondary" />);
     expect(wrapper.find('.sprk-c-Spinner--primary').length).toBe(1);
@@ -156,7 +156,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('.sprk-c-Spinner--dark').length).toBe(0);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('if loading is set and variant is tertiary, should render the secondary spinner', () => {
     const wrapper = mount(<SprkButton loading variant="tertiary" />);
     expect(wrapper.find('.sprk-c-Spinner--primary').length).toBe(0);
@@ -171,7 +171,7 @@ describe('SprkButton:', () => {
     expect(wrapper.find('.sprk-c-Spinner--dark').length).toBe(1);
   });
 
-  // TODO: Deprecate loading
+  // TODO: Remove on next release #3557
   it('if loading is set and variant is quaternary, should render the dark spinner', () => {
     const wrapper = mount(<SprkButton loading variant="quaternary" />);
     expect(wrapper.find('.sprk-c-Spinner--primary').length).toBe(0);
@@ -225,7 +225,7 @@ describe('SprkButton:', () => {
     },
   );
 
-  // TODO: Deprecate
+  // TODO: Remove on next release #3557
   it(
     'should not apply the disabled attribute if the' +
       ' element is an anchor "a"',
@@ -248,7 +248,7 @@ describe('SprkButton:', () => {
     },
   );
 
-  // TODO: Deprecate
+  // TODO: Remove on next release #3557
   it(
     'it should apply the disabled attribute if the element is a button' +
       ' and disabled is true',

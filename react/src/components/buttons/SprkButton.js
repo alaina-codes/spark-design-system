@@ -27,7 +27,7 @@ const SprkButton = ({
     TagName = 'button';
   }
   let spinnerVariant;
-  // TODO: Deprecate loading
+  // TODO: Remove loading on next release #3557
   if (loading || isSpinning) {
     if (variant === 'secondary') {
       spinnerVariant = 'primary';
@@ -55,10 +55,10 @@ const SprkButton = ({
       disabled={TagName !== 'a' ? isDisabled || disabled : undefined}
       href={TagName !== 'button' ? href : undefined}
       {...rest}
-      // TODO: Deprecate loading
+      // TODO: Remove loading on next release #3557
       {...((loading || isSpinning) && { 'aria-label': spinningAriaLabel })}
     >
-      {/* TODO: Deprecate loading */}
+      {/* TODO: Remove loading on next release #3557 */}
       {((loading || isSpinning) && <SprkSpinner variant={spinnerVariant} />) ||
         children}
     </TagName>
@@ -79,7 +79,7 @@ SprkButton.propTypes = {
   analyticsString: PropTypes.string,
   /** Content to render inside of the SprkButton */
   children: PropTypes.node,
-  // TODO: Deprecate on next release
+  // TODO: Remove disabled on next release #3557
   /**
    * Deprecated: Use `isDisabled` instead.
    * Applies disabled style and the
@@ -137,7 +137,7 @@ SprkButton.propTypes = {
   href: PropTypes.string,
 };
 
-// TODO: Remove loading and disabled at next release
+// TODO: Remove disabled and loading on next release #3557
 SprkButton.defaultProps = {
   isDisabled: false,
   disabled: false,
