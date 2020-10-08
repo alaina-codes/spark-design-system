@@ -114,6 +114,7 @@ SprkButton.propTypes = {
    * rendered in place of the button content.
    */
   isSpinning: PropTypes.bool,
+  // TODO: Remove on next release #3557
   /**
    * Deprecated: Use `isSpinning` instead.
    * Will cause a spinner to be
